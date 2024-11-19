@@ -19,6 +19,7 @@ def get_hash(to_hash):
 
 
 
+
 # Files and Exceptions
 
 # For this assignment, you will be writing a program to "crack" a password. You will need to open the file `hash` as this is the password you are trying to "crack."
