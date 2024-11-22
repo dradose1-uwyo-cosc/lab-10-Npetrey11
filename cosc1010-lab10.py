@@ -1,12 +1,10 @@
-# Your Name Here
+# Nikita petrey
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# 11/24/2024
+# Lab 10
+# Lab Section: 16
 # Sources, people worked with, help given to: 
-# your
-# comments
-# here
+
 
 #import modules you will need 
 
@@ -14,7 +12,7 @@ from hashlib import sha256
 from pathlib import Path
 
 def get_hash(to_hash):
-    """You can use """
+    
     return sha256(to_hash.encode('utf-8')).hexdigest().upper()
 
 
