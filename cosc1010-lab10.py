@@ -12,11 +12,35 @@ from hashlib import sha256
 from pathlib import Path
 
 def get_hash(to_hash):
-    
+    '''Hashes a given input string and returns the sha256 has in uppercase'''
     return sha256(to_hash.encode('utf-8')).hexdigest().upper()
 
+def crack_password():
+    try: #Read stored has file
+        hash_path = Path('hash')
+        with open(hash_path, 'r') as file:
+            stored_hash = file.read().strip()
+    except Exception as e:
+        print(f"Error in processing file code: {e}")
+        return
+    
+    try: #Read stored rockyou.txt
+        rockyou_path = Path('rockyou.txt')
+        with open(rockyou_path, 'r', encoding='latin-1') as R_file:
+            for password in R_file:
+                password = password.strip()
+                hashed_password = get_hash(password)
 
+                if hashed_password == stored_hash:
+                    print(f"Password for hash is: {hashed_password}")
+                    return
+    except Exception as e:
+        print(f"Error reading the password list: {e}")
+        return
 
+    print("Password not found")
+
+crack_password()
 
 # Files and Exceptions
 
